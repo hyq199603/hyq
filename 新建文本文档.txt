@@ -1,0 +1,10 @@
+import requests
+def hyq():
+    url=['http://www.17k.com','http://top.17k.com/']
+    writefile='C:\\Users\\Administrator\\Desktop\\AA.html'
+    header = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'}
+    with open(writefile,'a',encoding='utf-8',errors='ignore') as f:
+               for i in range(2):
+                    response=requests.get(url[i],headers = header)
+                    f.write(response.text)
+                   
