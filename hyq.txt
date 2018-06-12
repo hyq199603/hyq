@@ -1,0 +1,7 @@
+import requests
+a = requests.get('http://news.baidu.com/')
+a.text
+import re
+hyq = a.text
+e = re.findall('<a\href="(.*?)"',hyq)
+print(e)
