@@ -1,0 +1,18 @@
+import requests
+from lxml import etree
+file='C:\\Users\\Administrator\\Desktop\\qq.txt'
+hearder = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'}
+res= requests.get('http://www.17k.com/list/2822387.html',headers = hearder)
+tree4 = etree.HTML(res.text)
+dj = tree4.xpath('//div/dl[@class="Volume"]/dd/a')
+for i in dj:
+    href=i.xpath('./@href')[0]
+    hyq=('http://www.17k.com'+href)
+    hw= requests.get(hyq).text
+    import re
+    regex = re.compile('<h1>(.*?)£¡<br /><br />',re.S)
+    zcy = re.findall(regex,hw)
+    wq = str(zcy)
+    with open(file,'a',encoding='utf-8')as f:
+         f.write(wq)
+     
