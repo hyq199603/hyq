@@ -1,0 +1,12 @@
+ 1  create table GWC1(id int primary key not null auto_increment, name varchar(20) not null, love varchar(20) not null, zktx varchar(20) , styw varchar(20));
+insert into GWC1(id,name,love,zktx,styw) values (1,"pdd","y","n","qc1z");
+insert into GWC1(name,love,zktx,styw) values ("lx","y","n","wxhn"),("hyq","n","n","lxwxhn"),("gg","n","y","wxr");
+update GWC1 set styw="nike" where styw ="wxr";
+alter table GWC1 add isdelete int default 0;
+update GWC1 set isdelete=1 where name ="pdd";
+2   select * from emp;
+select * from emp order by empno desc;
+select sum(sal) from emp;
+select sal,count(sal),max(empno) from emp group by sal having count(sal)>1;
+select * from emp having emp.empno not in (select min(empno) from emp group by sal having count(sal)>1);
+
